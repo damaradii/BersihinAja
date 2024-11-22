@@ -43,6 +43,7 @@
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
+                <label for="password" class="form-label">*****</label>
                 <div class="input-group">
                     <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan password" required>
                     <span class="input-group-text" onclick="togglePassword()">
