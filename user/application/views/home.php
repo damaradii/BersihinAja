@@ -180,31 +180,63 @@
 
     <!-- Section: Services -->
     <section>
-      <h2 class="section-title">Pilih Paket Mu!</h2>
-      <div class="text-end mb-4">
-        <button class="btn btn-view-all">View All</button>
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="section-title text-lg font-bold">Pilih Paket Mu!</h2>
+        <a href="all_service" class="bg-green-200 text-green-800 font-semibold px-6 py-2 rounded-full hover:bg-green-300 transition duration-300">
+          View All
+        </a>
       </div>
-      <div class="row g-4">
+      <div class="row g-4 justify-content-center">
+        <!-- Card 1 -->
         <div class="col-md-4">
-          <div class="card-service">
-            <h5>Home Cleaning</h5>
-            <p>Jasa kebersihan untuk rumah Anda dengan layanan terbaik.</p>
+          <div class="bg-green-100 p-4 rounded-lg shadow hover:shadow-lg transition duration-300">
+            <div class="flex justify-between items-center">
+              <span class="bg-green-300 text-sm text-green-800 font-bold px-2 py-1 rounded-full">Discount 50%</span>
+              <button class="bg-white w-8 h-8 flex justify-center items-center rounded-full shadow">
+                <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+            <div class="mt-4 text-center">
+              <h5 class="text-lg font-bold text-gray-800">Home Cleaning</h5>
+              <p class="text-sm text-gray-500">Telus aliquam faucibus imperdiet eget interdum risus diam.</p>
+            </div>
           </div>
         </div>
+
+        <!-- Card 2 -->
         <div class="col-md-4">
-          <div class="card-service">
-            <h5>Office Cleaning</h5>
-            <p>Jaga kebersihan kantor Anda untuk produktivitas maksimal.</p>
+          <div class="bg-green-100 p-4 rounded-lg shadow hover:shadow-lg transition duration-300">
+            <div class="flex justify-between items-center">
+              <span class="bg-green-300 text-sm text-green-800 font-bold px-2 py-1 rounded-full">Discount 50%</span>
+              <button class="bg-white w-8 h-8 flex justify-center items-center rounded-full shadow">
+                <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+            <div class="mt-4 text-center">
+              <h5 class="text-lg font-bold text-gray-800">Office Cleaning</h5>
+              <p class="text-sm text-gray-500">Telus aliquam faucibus imperdiet eget interdum risus diam.</p>
+            </div>
           </div>
         </div>
+
+        <!-- Card 3 -->
         <div class="col-md-4">
-          <div class="card-service">
-            <h5>Kitchen Cleaning</h5>
-            <p>Bersihkan dapur Anda dengan layanan profesional.</p>
+          <div class="bg-green-100 p-4 rounded-lg shadow hover:shadow-lg transition duration-300">
+            <div class="flex justify-between items-center">
+              <span class="bg-green-300 text-sm text-green-800 font-bold px-2 py-1 rounded-full">Discount 50%</span>
+              <button class="bg-white w-8 h-8 flex justify-center items-center rounded-full shadow">
+                <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+            <div class="mt-4 text-center">
+              <h5 class="text-lg font-bold text-gray-800">Kitchen Cleaning</h5>
+              <p class="text-sm text-gray-500">Telus aliquam faucibus imperdiet eget interdum risus diam.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
+
   </div>
 
   <!-- Bootstrap JS -->
