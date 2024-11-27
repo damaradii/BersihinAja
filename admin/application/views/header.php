@@ -6,35 +6,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Admin BersihinAja</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Tambahkan Chart.js -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+
+
   <style>
     body {
       background-color: #fbfbfb;
     }
 
-    @media (min-width: 991.98px) {
-      main {
-        padding-left: 240px;
-      }
+    main {
+      margin-top: 60px;
+      margin-left: 60px;
+      transition: margin-left 0.3s ease-in-out;
     }
 
-    /* Sidebar */
     .sidebar {
       position: fixed;
       top: 0;
       bottom: 0;
       left: 0;
-      padding: 58px 0 0;
-      /* Height of navbar */
-      box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
       width: 240px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
       z-index: 600;
+      transition: transform 0.3s ease-in-out;
+      transform: translateX(-240px); /* Awal tersembunyi */
     }
 
-    @media (max-width: 991.98px) {
-      .sidebar {
-        width: 100%;
-      }
+    .sidebar.show {
+      transform: translateX(0); /* Ditampilkan */
+    }
+
+    .sidebar.collapsed {
+      transform: translateX(-240px); /* Tersembunyi */
     }
 
     .sidebar .active {
@@ -49,7 +55,38 @@
       padding-top: 0.5rem;
       overflow-x: hidden;
       overflow-y: auto;
-      /* Scrollable contents if viewport is shorter than content. */
+    }
+
+    @media (min-width: 992px) {
+      .sidebar {
+        transform: translateX(0); /* Selalu terlihat pada layar lebar */
+      }
+
+      .sidebar.collapsed {
+        transform: translateX(0); /* Abaikan collapsed pada layar lebar */
+      }
+
+      main {
+        margin-left: 240px; /* Konten utama bergeser sesuai lebar sidebar */
+      }
+
+      .sidebar.show ~ main {
+        margin-left: 240px;
+      }
+    }
+
+    @media (max-width: 991.98px) {
+      .sidebar {
+        transform: translateX(-100%); /* Tersembunyi pada layar kecil */
+      }
+
+      .sidebar.show {
+        transform: translateX(0); /* Ditampilkan pada layar kecil */
+      }
+
+      main {
+        margin-left: 0; /* Konten tidak bergeser saat sidebar tersembunyi */
+      }
     }
   </style>
 
@@ -57,41 +94,37 @@
 
 <body>
 
-  <!-- Sidebar -->
-  <!-- Sidebar -->
-  <nav
-    id="sidebarMenu"
-    class="collapse d-lg-block sidebar collapse bg-white">
+  <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
     <div class="position-sticky">
       <div class="list-group list-group-flush mx-3 mt-4">
-        <a
-          href="<?php echo base_url("home") ?>"
-          class="list-group-item list-group-item-action py-2 ripple"
-          aria-current="true">
+
+        <a href="<?php echo base_url("home") ?>" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
           <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Home</span>
         </a>
-        <a
-          href="<?php echo base_url("artikel") ?>"
-          class="list-group-item list-group-item-action py-2 ripple">
+
+        <a href="<?php echo base_url("artikel") ?>" class="list-group-item list-group-item-action py-2 ripple">
           <i class="fas fa-chart-area fa-fw me-3"></i><span>Artikel</span>
         </a>
-        <a
-          href="<?php echo base_url("slider") ?>"
-          class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-lock fa-fw me-3"></i><span>Slider</span></a>
-        <a
-          href="<?php echo base_url("kategori") ?>"
-          class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-chart-line fa-fw me-3"></i><span>Kategori</span></a>
-        <a
-          href="<?php echo base_url("produk") ?>"
-          class="list-group-item list-group-item-action py-2 ripple">
+
+        <a href="<?php echo base_url("slider") ?>" class="list-group-item list-group-item-action py-2 ripple">
+          <i class="fas fa-lock fa-fw me-3"></i><span>Slider</span>
+        </a>
+
+        <a href="<?php echo base_url("kategori") ?>" class="list-group-item list-group-item-action py-2 ripple">
+          <i class="fas fa-chart-line fa-fw me-3"></i><span>Kategori</span>
+        </a>
+
+        <a href="<?php echo base_url("produk") ?>" class="list-group-item list-group-item-action py-2 ripple">
           <i class="fas fa-chart-pie fa-fw me-3"></i><span>Produk</span>
         </a>
-        <a
-          href="<?php echo base_url("member") ?>"
-          class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-chart-bar fa-fw me-3"></i><span>Member</span></a>
-        <a
-          href="<?php echo base_url("transaksi") ?>"
-          class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-globe fa-fw me-3"></i><span>Transaksi</span></a>
+
+        <a href="<?php echo base_url("member") ?>" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-chart-bar fa-fw me-3">
+          </i><span>Member</span>
+        </a>
+
+        <a href="<?php echo base_url("transaksi") ?>" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-globe fa-fw me-3">
+          </i><span>Transaksi</span>
+        </a>
 
       </div>
     </div>
@@ -99,17 +132,15 @@
   <!-- Sidebar -->
 
   <!-- Navbar -->
-  <nav
-    id="main-navbar"
-    class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+  <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
     <!-- Container wrapper -->
     <div class="container-fluid">
       <!-- Toggle button -->
       <button
         class="navbar-toggler"
         type="button"
-        data-mdb-toggle="collapse"
-        data-mdb-target="#sidebarMenu"
+        data-bs-toggle="collapse"
+        data-bs-target="#sidebarMenu"
         aria-controls="sidebarMenu"
         aria-expanded="false"
         aria-label="Toggle navigation">
@@ -117,12 +148,18 @@
       </button>
 
       <!-- Brand -->
-      <a class="navbar-brand" href="#">
-        <img
-          src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png"
-          height="25"
-          alt=""
-          loading="lazy" />
+    
+      <a class="navbar-brand px-4" href="#">
+          <span class="text-2xl font-bold text-gray-800 flex items-center">
+            <img 
+            src="https://cdn.discordapp.com/attachments/962882027093364826/1311305244285599816/wind.svg?ex=67485fad&is=67470e2d&hm=87b066648a3b4132893b9c95f6a1821225b3685e654603a3dc4cbea7cfb18212&"
+            alt="logo" 
+            class="h-6 mr-2"
+            height="25"
+            alt=""
+            loading="lazy">
+            BersihinAja
+          </span>
       </a>
       <!-- Search form -->
       <form class="d-none d-md-flex input-group w-auto my-auto">
@@ -137,35 +174,7 @@
 
       <!-- Right links -->
       <ul class="navbar-nav ms-auto d-flex flex-row">
-        <!-- Notification dropdown -->
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow"
-            href="#"
-            id="navbarDropdownMenuLink"
-            role="button"
-            data-mdb-toggle="dropdown"
-            aria-expanded="false">
-            <i class="fas fa-bell"></i>
-            <span class="badge rounded-pill badge-notification bg-danger">1</span>
-          </a>
-          <ul
-            class="dropdown-menu dropdown-menu-end"
-            aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Some news</a></li>
-            <li><a class="dropdown-item" href="#">Another news</a></li>
-            <li>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </li>
-          </ul>
-        </li>
 
-        <!-- Icon -->
-        <li class="nav-item">
-          <a class="nav-link me-3 me-lg-0" href="#">
-            <i class="fas fa-fill-drip"></i>
-          </a>
-        </li>
         <!-- Icon -->
         <li class="nav-item me-3 me-lg-0">
           <a class="nav-link" href="#">
@@ -173,130 +182,25 @@
           </a>
         </li>
 
-        <!-- Icon dropdown -->
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow"
-            href="#"
-            id="navbarDropdown"
-            role="button"
-            data-mdb-toggle="dropdown"
-            aria-expanded="false">
-            <i class="united kingdom flag m-0"></i>
-          </a>
-          <ul
-            class="dropdown-menu dropdown-menu-end"
-            aria-labelledby="navbarDropdown">
-            <li>
-              <a class="dropdown-item" href="#"><i class="united kingdom flag"></i>English
-                <i class="fa fa-check text-success ms-2"></i></a>
-            </li>
-            <li>
-              <hr class="dropdown-divider" />
-            </li>
-            <li>
-              <a class="dropdown-item" href="#"><i class="poland flag"></i>Polski</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#"><i class="china flag"></i>中文</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#"><i class="japan flag"></i>日本語</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#"><i class="germany flag"></i>Deutsch</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#"><i class="france flag"></i>Français</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#"><i class="spain flag"></i>Español</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#"><i class="russia flag"></i>Русский</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#"><i class="portugal flag"></i>Português</a>
-            </li>
-          </ul>
-        </li>
 
         <!-- Avatar -->
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center"
-            href="#"
-            id="navbarDropdownMenuLink"
-            role="button"
-            data-mdb-toggle="dropdown"
-            aria-expanded="false">
-            <img
-              src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg"
-              class="rounded-circle"
-              height="22"
-              alt=""
-              loading="lazy" />
-          </a>
-          <ul
-            class="dropdown-menu dropdown-menu-end"
-            aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">My profile</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
-          </ul>
+        <li class="nav-item">
+                <a href="<?php echo base_url("akun") ?>" class="nav-link">
+                    <?php echo $this->session->userdata("nama") ?>       
+                </a>
         </li>
       </ul>
     </div>
     <!-- Container wrapper -->
-  </nav>
+      </nav>
+    <!--Main layout-->
+    <main style="margin-top: 58px">
+      <div class="container pt-4">
 
-  <main style="margin-top: 58px">
-    <div class="container pt-4">
+      </div>
+    </main>
 
-    </div>
-  </main>
-  <!-- Navbar -->
 
-  <!-- Tambahkan Script -->
-  <script>
-    var ctx = document.getElementById("myChart").getContext("2d");
-
-    var myChart = new Chart(ctx, {
-      type: "line",
-      data: {
-        labels: [
-          "Sunday",
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-        ],
-        datasets: [{
-          data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
-          lineTension: 0,
-          backgroundColor: "transparent",
-          borderColor: "#007bff",
-          borderWidth: 4,
-          pointBackgroundColor: "#007bff",
-        }, ],
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: false,
-          },
-        },
-        plugins: {
-          legend: {
-            display: false,
-          },
-        },
-      },
-    });
-  </script>
-
-</body>
+  </body>
 
 </html>
