@@ -12,7 +12,7 @@
           </tr>
         </thead>
         <tbody>
-					<?php foreach ($member as $k => $v): ?>
+					<!-- <?php foreach ($member as $k => $v): ?>
 
           <tr>
             <td><?php echo $k +1; ?></td>
@@ -24,7 +24,7 @@
               <a href="<?php echo base_url("member/detail/".$v['id_member']) ?>" class="btn btn-info">Detail</a>
             </td>
           </tr>
-					<?php endforeach ?>
+					<?php endforeach ?> -->
 
         </tbody>
       </table>

@@ -9,7 +9,7 @@
             <th>Opsi</th>
           </tr>
         </thead>
-        <tbody>
+        <!-- <tbody>
           <?php foreach ($slider as $k => $v): ?>
 
           <tr>
@@ -23,7 +23,7 @@
               <a href="<?php echo base_url("slider/hapus/".$v["id_slider"]) ?>" class="btn btn-danger">Hapus</a>
             </td>
           </tr>
-          <?php endforeach ?>
+          <?php endforeach ?> -->
 
         </tbody>
       </table>

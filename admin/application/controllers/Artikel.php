@@ -16,13 +16,14 @@ class Artikel extends CI_Controller{
 
 
 
-		//panggil model Martikel
-		$this->load->model("Martikel");
+		// //panggil model Martikel
+		// $this->load->model("Martikel");
 
-		$data["artikel"] = $this->Martikel->tampil();
+		// $data["artikel"] = $this->Martikel->tampil();
 
 		$this->load->view("header");
-		$this->load->view("artikel_tampil", $data);
+		$this->load->view("artikel_tampil");
+		// hapus ,data
 		$this->load->view("footer");
 	}
 	function tambah(){

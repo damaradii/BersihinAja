@@ -11,7 +11,7 @@
           </tr>
         </thead>
         <tbody>
-					<?php foreach ($transaksi as $k => $v): ?>
+					<!-- <?php foreach ($transaksi as $k => $v): ?>
 
           <tr>
             <td><?php echo $k +1; ?></td>
@@ -22,7 +22,7 @@
               <a href="<?php echo base_url("transaksi/detail/".$v["id_transaksi"]) ?>" class="btn btn-info">Detail</a>
             </td>
           </tr>
-					<?php endforeach ?>
+					<?php endforeach ?> -->
         </tbody>
       </table>
       <a href="<?php echo base_url("member/tambah") ?>" class="btn btn-primary">Tambah Data</a>

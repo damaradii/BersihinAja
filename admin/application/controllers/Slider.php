@@ -16,13 +16,14 @@ class Slider extends CI_Controller{
 
 
 
-		//panggil model Mslider
-		$this->load->model("Mslider");
+		// //panggil model Mslider
+		// $this->load->model("Mslider");
 
-		$data["slider"] = $this->Mslider->tampil();
+		// $data["slider"] = $this->Mslider->tampil();
 
 		$this->load->view("header");
-		$this->load->view("slider_tampil", $data);
+		$this->load->view("slider_tampil");
+		// hapus ,data
 		$this->load->view("footer");
 	}
 	function tambah(){

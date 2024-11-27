@@ -11,7 +11,7 @@
           </tr>
         </thead>
         <tbody>
-					<?php foreach ($produk as $k => $v): ?>
+					<!-- <?php foreach ($produk as $k => $v): ?>
 
           <tr>
             <td><?php echo $k +1; ?></td>
@@ -24,7 +24,7 @@
               <a href="" class="btn btn-info">Detail</a>
             </td>
           </tr>
-					<?php endforeach ?>
+					<?php endforeach ?> -->
 
         </tbody>
       </table>

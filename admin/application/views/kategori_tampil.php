@@ -10,7 +10,7 @@
           </tr>
         </thead>
         <tbody>
-					<?php foreach ($kategori as $k => $v): ?>
+					<!-- <?php foreach ($kategori as $k => $v): ?>
 
           <tr>
             <td><?php echo $k +1; ?></td>
@@ -23,7 +23,7 @@
               <a href="<?php echo base_url("kategori/hapus/".$v["id_kategori"]) ?>" class="btn btn-danger">Hapus</a>
             </td>
           </tr>
-					<?php endforeach ?>
+					<?php endforeach ?> -->
 
         </tbody>
       </table>

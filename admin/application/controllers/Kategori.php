@@ -16,13 +16,14 @@ class Kategori extends CI_Controller{
 
 
 
-		//panggil model Mkategori
-		$this->load->model("Mkategori");
+		// //panggil model Mkategori
+		// $this->load->model("Mkategori");
 
-		$data["kategori"] = $this->Mkategori->tampil();
+		// $data["kategori"] = $this->Mkategori->tampil();
 
 		$this->load->view("header");
-		$this->load->view("kategori_tampil", $data);
+		$this->load->view("kategori_tampil");
+		// hapus ,data
 		$this->load->view("footer");
 	}
 	function tambah(){
