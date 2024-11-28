@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="<?php echo base_url('/assets/css/admin.css'); ?>" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
     crossorigin="anonymous"></script>
+    
 </head>
 
 <body>
@@ -68,7 +69,11 @@
 
         <!-- Brand -->
         <a class="navbar-brand" href="#">
-          <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="25" alt="" loading="lazy" />
+          <span class="text-2xl font-bold text-gray-800 flex items-center">
+            <img src="<?php echo base_url('/assets/image/wind.svg'); ?>" alt="logo" class="h-6 mr-2">
+            BersihinAja
+          </span>
+          
         </a>
         <!-- Search form -->
         <form class="d-none d-md-flex input-group w-auto my-auto">
@@ -95,18 +100,6 @@
             </ul>
           </li>
 
-          <!-- Icon -->
-          <li class="nav-item">
-            <a class="nav-link me-3 me-lg-0" href="#">
-              <i class="fas fa-fill-drip"></i>
-            </a>
-          </li>
-          <!-- Icon -->
-          <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link" href="#">
-              <i class="fab fa-github"></i>
-            </a>
-          </li>
 
           <!-- Icon dropdown -->
           <li class="nav-item dropdown">
@@ -153,13 +146,12 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#"
               id="navbarDropdownMenuLink" role="button" data-mdb-dropdown-init aria-expanded="false">
-              <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="22"
-                alt="" loading="lazy" />
+              <?php echo $this->session->userdata("nama") ?>   
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">My profile</a></li>
+              <li><a class="dropdown-item" href="<?php echo base_url("akun") ?>">My profile</a></li>
               <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Logout</a></li>
+              <li><a class="dropdown-item" href="<?php echo base_url("logout") ?>">Logout</a></li>
             </ul>
           </li>
         </ul>
@@ -173,12 +165,9 @@
   <!--Main layout-->
   <main style="margin-top: 58px">
     <div class="container pt-4">
-      <!-- Section: Main chart -->
-      <section class="mb-4">
+        <!-- Section: Dynamic Content -->
 
-      </section>
-      <!-- Section: Main chart -->
-
+        <!-- Section: Dynamic Content -->
     </div>
   </main>
   <!--Main layout-->
