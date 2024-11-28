@@ -6,13 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <title>Material Design for Bootstrap</title>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css" />
-  <!-- Google Fonts Roboto -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+<!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
   <!-- MDB -->
-  <link rel="stylesheet" href="<?php echo base_url('/assets/css/mdb.min.css'); ?>" />
+  <link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/8.1.0/mdb.min.css"
+  rel="stylesheet"
+/>
   <link rel="stylesheet" href="<?php echo base_url('/assets/css/admin.css'); ?>" />
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
     crossorigin="anonymous"></script>
     
@@ -163,7 +173,7 @@
   <!--Main Navigation-->
 
   <!--Main layout-->
-  <main style="margin-top: 58px">
+  <main >
     <div class="container pt-4">
         <!-- Section: Dynamic Content -->
 
@@ -172,7 +182,7 @@
   </main>
   <!--Main layout-->
   <!-- MDB -->
-  <script src="<?php echo base_url('/assets/js/mdb.umd.min.js'); ?>"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/8.1.0/mdb.umd.min.js"></script>
   <script src="<?php echo base_url('/assets/js/admin.js'); ?>"></script>
 
 </body>
