@@ -25,8 +25,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $config['base_url'] = 'http://localhost/BersihinAja/admin/';
 
-$config['assets_kategori'] = $_SERVER['DOCUMENT_ROOT']."/BersihinAja/assets/kategori/";
-$config["url_kategori"] = 'http://localhost/BersihinAja/assets/kategori/';
+$config['assets_layanan'] = $_SERVER['DOCUMENT_ROOT']."/BersihinAja/assets/layanan/";
+$config["url_layanan"] = 'http://localhost/BersihinAja/assets/layanan/';
 
 $config['assets_produk'] = $_SERVER["DOCUMENT_ROOT"]."/BersihinAja/assets/produk/";
 $config["url_produk"] = 'http://localhost/BersihinAja/assets/produk/';

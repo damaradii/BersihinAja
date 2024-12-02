@@ -1,6 +1,6 @@
 
 
-	<footer class="bg-light text-center">
+<footer class="bg-light text-center">
 	      <div class="">copyright &copy; 2024. Amikom</div>
 	</footer>
 

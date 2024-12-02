@@ -1,6 +1,6 @@
 <main style="margin-top: 58px">
   <div class="container">
-        <h5>Data Transaksi</h5>
+        <h5>Data Transactions</h5>
         <table class="table table-bordered" id="tabelku">
           <thead>
             <tr>
