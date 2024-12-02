@@ -13,20 +13,19 @@
           </thead>
           <tbody>
             <?php foreach ($pekerja as $k => $v): ?>
-
-            <tr>
-              <td><?php echo $k +1; ?></td>
-              <td><?php echo $v['Username']; ?></td>
-              <td><?php echo $v['Email_Pekerja']; ?></td>
-              <td><?php echo $v['No_Hp']; ?></td>
-              <td>
-                <a href="<?php echo base_url("pekerja/detail/".$v['Id_Pekerja']) ?>" class="btn btn-info">Detail</a>
-              </td>
-            </tr>
-            <?php endforeach ?>
-
+              <?php if (isset($v['Role_Id']) && $v['Role_Id'] == "pekerja"): ?>
+                <tr>
+                  <td><?php echo $k + 1; ?></td>
+                  <td><?php echo htmlspecialchars($v['Nama_User']); ?></td>
+                  <td><?php echo htmlspecialchars($v['Email_User']); ?></td>
+                  <td><?php echo htmlspecialchars($v['No_Hp']); ?></td>
+                  <td>
+                    <a href="<?php echo base_url("user/detail/" . $v['Id_User']); ?>" class="btn btn-info">Detail</a>
+                  </td>
+                </tr>
+              <?php endif; ?>
+            <?php endforeach; ?>
           </tbody>
         </table>
   </div>
-
 </main>

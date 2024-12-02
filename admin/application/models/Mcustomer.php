@@ -2,19 +2,20 @@
 class Mcustomer extends CI_Model{
 	function tampil(){
 		//melakukan query
-		$q = $this->db->get("customer");
+		$q = $this->db->get("user");
 		$d = $q->result_array();
 		
 		return $d;
 	}
-	function detail($id_customer): mixed{
-		$this->db->where('Id_Customer', $id_customer);
+	function detail($id_user): mixed{
+		$this->db->where('Id_User', $id_user);
 
 		//melakukan query
-		$q = $this->db->get('customer');
+		$q = $this->db->get("user");
+        
 
 		//dipecah
-		$d = $q->row_array();
+		$d = $q->result_array();
 
 		return $d;
 	}
