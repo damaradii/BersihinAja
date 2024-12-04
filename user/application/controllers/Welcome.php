@@ -14,7 +14,7 @@ class Welcome extends CI_Controller
 	{
 		$data['user'] = null;
 		if ($this->session->userdata('Email_User')) {
-			$data['user'] = $this->db->get_where('customer', ['Email_User' => $this->session->userdata('Email_User')])->row_array();
+			$data['user'] = $this->db->get_where('user', ['Email_User' => $this->session->userdata('Email_User')])->row_array();
 		}
 
 		$this->load->model("Muser");
